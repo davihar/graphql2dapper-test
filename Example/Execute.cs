@@ -3,7 +3,7 @@
     using GraphQL;
     using GraphQL.Http;
 
-    using Schema;
+    using Graphql;
 
     public static class Execute
     {
@@ -13,7 +13,9 @@
                 opts.Query = query;
                 opts.Schema = new GraphQL.Types.Schema
                 {
-                    Query = new QueryType()
+                    Query = new Query()
+                    //, Mutation = 
+                    
                 };
             }).Result;
 

@@ -1,18 +1,15 @@
-﻿namespace Example.Schema
+﻿using System.Linq;
+using Dapper.GraphQL;
+using Example.EntityMappers;
+using Example.QueryBuilders;
+using GraphQL.Types;
+using Microsoft.Data.Sqlite;
+
+namespace Example.Graphql
 {
-    using System.Linq;
-
-    using Dapper.GraphQL;
-
-    using GraphQL.Types;
-
-    using Microsoft.Data.Sqlite;
-
-    using SqlQuery;
-
-    public class QueryType : ObjectGraphType
+    public class Query : ObjectGraphType
     {
-        public QueryType()
+        public Query()
         {
             Field<ListGraphType<PersonType>>(
                 "persons", 
@@ -20,7 +17,7 @@
                     const string alias = "person";
                     var sqlQuery = SqlBuilder.From($"Persons {alias}");
                     
-                    sqlQuery = new PersonQuery().Build(sqlQuery, context.FieldAst, alias);
+                    sqlQuery = new PersonQueryBuilder().Build(sqlQuery, context.FieldAst, alias);
                     using (var db = new SqliteConnection("Data Source=example.db")) {
                         return sqlQuery.Execute(db, context.FieldAst, new PersonMapper());
                     }

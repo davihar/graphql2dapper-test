@@ -1,11 +1,9 @@
-﻿namespace Example.SqlQuery
+﻿using System;
+using Dapper.GraphQL;
+using Example.Models;
+
+namespace Example.EntityMappers
 {
-    using System;
-
-    using Dapper.GraphQL;
-
-    using Model;
-
     public class PersonMapper : IEntityMapper<Person>
     {
         public Func<Person, Person> ResolveEntity { get; set; }

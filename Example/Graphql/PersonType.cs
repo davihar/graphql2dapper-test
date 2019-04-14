@@ -1,9 +1,8 @@
-﻿namespace Example.Schema
+﻿using Example.Models;
+using GraphQL.Types;
+
+namespace Example.Graphql
 {
-    using GraphQL.Types;
-
-    using Model;
-
     public class PersonType : ObjectGraphType<Person>
     {
         public PersonType()

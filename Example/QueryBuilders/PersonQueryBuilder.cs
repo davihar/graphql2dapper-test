@@ -1,14 +1,10 @@
-﻿namespace Example.SqlQuery
+﻿using Dapper.GraphQL;
+using Example.Models;
+using GraphQL.Language.AST;
+
+namespace Example.QueryBuilders
 {
-    using System;
-
-    using Dapper.GraphQL;
-
-    using GraphQL.Language.AST;
-
-    using Model;
-
-    public class PersonQuery : IQueryBuilder<Person>
+    public class PersonQueryBuilder : IQueryBuilder<Person>
     {
         public SqlQueryContext Build(SqlQueryContext query, IHaveSelectionSet context, string alias)
         {
@@ -28,7 +24,7 @@
                     case "address":
                         var addressAlias = $"{alias}Address";
                         query.InnerJoin($"Addresses {addressAlias} on {alias}.AddressId = {addressAlias}.Id");
-                        query = new AddressQuery().Build(query, field.Value, addressAlias);
+                        query = new AddressQueryBuilder().Build(query, field.Value, addressAlias);
                         break;
                 }
             }

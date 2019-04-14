@@ -1,14 +1,10 @@
-﻿namespace Example.SqlQuery
+﻿using Dapper.GraphQL;
+using Example.Models;
+using GraphQL.Language.AST;
+
+namespace Example.QueryBuilders
 {
-    using System;
-
-    using Dapper.GraphQL;
-
-    using GraphQL.Language.AST;
-
-    using Model;
-
-    public class CountryQuery : IQueryBuilder<Country>
+    public class CountryQueryBuilder : IQueryBuilder<Country>
     {
         public SqlQueryContext Build(SqlQueryContext query, IHaveSelectionSet context, string alias)
         {
