@@ -1,8 +1,8 @@
-﻿namespace Example.Schema
-{
-    using GraphQL.Types;
+﻿using Example.Models;
+using GraphQL.Types;
 
-    using Model;
+namespace Example.Graphql
+{
     public class AddressType : ObjectGraphType<Address>
     {
         public AddressType()

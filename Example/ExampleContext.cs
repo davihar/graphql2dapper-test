@@ -1,8 +1,8 @@
-﻿namespace Example
+﻿using Example.Models;
+
+namespace Example
 {
     using Microsoft.EntityFrameworkCore;
-
-    using Model;
 
     public class ExampleContext : DbContext
     {

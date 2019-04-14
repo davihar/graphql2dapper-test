@@ -1,14 +1,10 @@
-﻿namespace Example.SqlQuery
+﻿using Dapper.GraphQL;
+using Example.Models;
+using GraphQL.Language.AST;
+
+namespace Example.QueryBuilders
 {
-    using System;
-
-    using Dapper.GraphQL;
-
-    using GraphQL.Language.AST;
-
-    using Model;
-
-    public class CityQuery : IQueryBuilder<City>
+    public class CityQueryBuilder : IQueryBuilder<City>
     {
         public SqlQueryContext Build(SqlQueryContext query, IHaveSelectionSet context, string alias)
         {
@@ -28,7 +24,7 @@
                     case "country":
                         var countryAlias = $"{alias}Country";
                         query.InnerJoin($"Countries {countryAlias} on {alias}.CountryId = {countryAlias}.Id");
-                        query = new CountryQuery().Build(query, field.Value, countryAlias);
+                        query = new CountryQueryBuilder().Build(query, field.Value, countryAlias);
                         break;
                 }
             }
