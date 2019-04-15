@@ -19,7 +19,7 @@ namespace Example.Graphql
                     
                     sqlQuery = new PersonQueryBuilder().Build(sqlQuery, context.FieldAst, alias);
                     using (var db = new SqliteConnection("Data Source=example.db")) {
-                        return sqlQuery.Execute(db, context.FieldAst, new PersonMapper());
+                        return sqlQuery.Execute(db, context.FieldAst, new PersonEntityMapper());
                     }
                 });
 
@@ -28,6 +28,8 @@ namespace Example.Graphql
                 arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
                 resolve: context => {
                     var id = context.GetArgument<long>("id");
+
+                    // TODO convert this to an example using the database
                     return ExampleSeed.Persons.SingleOrDefault(p => p.Id == id);
                  });
         }
