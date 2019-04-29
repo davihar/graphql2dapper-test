@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "Example\Example.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Cli", "Example.Cli\Example.Cli.csproj", "{8F197CE2-182F-4000-9F83-68EE4A134349}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapper.GraphQL", "..\Dapper.GraphQL\Dapper.GraphQL\Dapper.GraphQL.csproj", "{011753CB-3093-4AC8-9A91-FBA9590AAB6E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{8F197CE2-182F-4000-9F83-68EE4A134349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F197CE2-182F-4000-9F83-68EE4A134349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F197CE2-182F-4000-9F83-68EE4A134349}.Release|Any CPU.Build.0 = Release|Any CPU
-		{011753CB-3093-4AC8-9A91-FBA9590AAB6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{011753CB-3093-4AC8-9A91-FBA9590AAB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{011753CB-3093-4AC8-9A91-FBA9590AAB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{011753CB-3093-4AC8-9A91-FBA9590AAB6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
