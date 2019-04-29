@@ -14,4 +14,8 @@
     <ProjectReference Include="..\..\Dapper.GraphQL\Dapper.GraphQL\Dapper.GraphQL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Schema\" />
+  </ItemGroup>
+
 </Project>

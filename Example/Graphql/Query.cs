@@ -9,6 +9,7 @@ namespace Example.Graphql
 {
     public class Query : ObjectGraphType
     {
+        // TODO have constructor accept a connection string rather than hard coding it below
         public Query()
         {
             Field<ListGraphType<PersonType>>(
