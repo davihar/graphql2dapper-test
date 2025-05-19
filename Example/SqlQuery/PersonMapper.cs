@@ -13,21 +13,42 @@
         public Person Map(EntityMapContext context)
         {
             Person person = null;
+            Address address = null;
+            City city = null;
+            Country country = null;
 
-            foreach (var obj in context.Items) {
-                switch (obj) {
+            foreach (var obj in context.Items)
+            {
+                switch (obj)
+                {
                     case Person p:
                         person = p;
                         break;
-                    case Address address:
-                        person.Address = address;
+                    case Address a:
+                        address = a;
                         break;
-                    case City city:
+                    case City c:
+                        city = c;
+                        break;
+                    case Country ctr:
+                        country = ctr;
+                        break;
+                }
+            }
+
+            if (person != null)
+            {
+                if (address != null)
+                {
+                    person.Address = address;
+                    if (city != null)
+                    {
                         person.Address.City = city;
-                        break;
-                    case Country country:
-                        person.Address.City.Country = country;
-                        break;
+                        if (country != null)
+                        {
+                            person.Address.City.Country = country;
+                        }
+                    }
                 }
             }
 
